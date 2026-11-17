@@ -1,0 +1,8 @@
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nnaco_sa.products' doesn't exist
+#0 C:\xampp\htdocs\nnaco.sa\core\Database.php(54): PDOStatement->execute()
+#1 C:\xampp\htdocs\nnaco.sa\core\Database.php(63): Database->execute()
+#2 C:\xampp\htdocs\nnaco.sa\app\models\Product_model.php(76): Database->single()
+#3 C:\xampp\htdocs\nnaco.sa\app\controllers\HomeController.php(21): Product_model->getTotalProducts(Array)
+#4 C:\xampp\htdocs\nnaco.sa\core\App.php(43): HomeController->index()
+#5 C:\xampp\htdocs\nnaco.sa\public\index.php(11): App->__construct()
+#6 {main}

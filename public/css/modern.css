@@ -1,0 +1,237 @@
+:root {
+    --primary-color: #d4af37;
+    --primary-hover: #b5952f;
+    --secondary-color: #f9d976;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-radius: 16px;
+    --glass-bg: rgba(30, 30, 30, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Bootstrap Overrides for Dark Mode */
+.bg-light, .bg-white {
+    background-color: var(--surface-color) !important;
+}
+.btn-light {
+    background-color: #2a2a2a !important;
+    border-color: var(--glass-border) !important;
+    color: var(--text-main) !important;
+}
+.btn-light:hover {
+    background-color: #333 !important;
+    color: var(--primary-color) !important;
+}
+.text-dark {
+    color: var(--text-main) !important;
+}
+.text-muted {
+    color: var(--text-muted) !important;
+}
+.border, .border-top, .border-bottom, .border-start, .border-end, .border-0 {
+    border-color: var(--glass-border) !important;
+}
+
+/* Glassmorphism Navbar */
+.navbar-glass {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.navbar-glass .navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+.navbar-glass .nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.navbar-glass .nav-link:hover, .navbar-glass .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #1f1f1f 0%, #121212 100%);
+    border-radius: var(--border-radius);
+    padding: 5rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Product Cards */
+.modern-card {
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+.modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.2);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+.product-img-wrapper {
+    position: relative;
+    padding: 20px;
+    background: #1a1a1a;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+}
+.product-img-wrapper img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+.modern-card:hover .product-img-wrapper img {
+    transform: scale(1.05);
+}
+.price-tag {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.btn-modern {
+    border-radius: 9999px;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.2s ease;
+}
+.btn-primary-modern {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #121212;
+    border: none;
+    font-weight: 700;
+}
+.btn-primary-modern:hover {
+    opacity: 0.95;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    color: #121212;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* List group (Filter Sidebar) */
+.list-group-modern .list-group-item {
+    border: none;
+    background-color: transparent;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px !important;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.list-group-modern .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+.list-group-modern .list-group-item.active {
+    background-color: rgba(212, 175, 55, 0.15);
+    color: var(--primary-color);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+}
+
+/* Input Overrides */
+.form-control, .input-group-text {
+    background-color: #2a2a2a !important;
+    border-color: var(--glass-border) !important;
+    color: var(--text-main) !important;
+}
+.form-control:focus {
+    background-color: #333 !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+    color: var(--text-main) !important;
+}
+.form-control::placeholder {
+    color: #6b7280 !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background-color: var(--surface-color);
+    border: 1px solid var(--glass-border);
+}
+.dropdown-item {
+    color: var(--text-main);
+}
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--primary-color);
+}
+
+/* Badge overrides */
+.bg-success {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: #34d399 !important;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.bg-danger {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}

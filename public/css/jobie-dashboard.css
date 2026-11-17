@@ -1,0 +1,1024 @@
+:root {
+    --jobie-purple: #3B1397;
+    --jobie-purple-dark: #2B0C77;
+    --jobie-purple-light: #4E17C8;
+    --jobie-bg: #F4F6FB;
+    --jobie-card-bg: #FFFFFF;
+    --jobie-text-dark: #1F2430;
+    --jobie-text-muted: #8E95A5;
+    --jobie-border: #E8ECF4;
+    --jobie-radius-sm: 12px;
+    --jobie-radius-md: 18px;
+    --jobie-radius-lg: 24px;
+    --jobie-shadow: 0 6px 24px rgba(28, 39, 60, 0.05);
+}
+
+body.jobie-body {
+    background-color: var(--jobie-bg) !important;
+    color: var(--jobie-text-dark) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ensure Jobie elements are not overridden by dark mode rules */
+.jobie-container .bg-white,
+.jobie-container .bg-light {
+    background-color: #FFFFFF !important;
+    color: var(--jobie-text-dark) !important;
+}
+
+.jobie-container .text-dark {
+    color: var(--jobie-text-dark) !important;
+}
+
+.jobie-container .text-muted {
+    color: var(--jobie-text-muted) !important;
+}
+
+.jobie-container .card {
+    background-color: #FFFFFF !important;
+    color: var(--jobie-text-dark) !important;
+    border: none !important;
+    border-radius: var(--jobie-radius-md) !important;
+    box-shadow: var(--jobie-shadow) !important;
+}
+
+.jobie-container .card-header {
+    background-color: #FFFFFF !important;
+    color: var(--jobie-text-dark) !important;
+    border-bottom: 1px solid var(--jobie-border) !important;
+}
+
+.jobie-container .table {
+    color: var(--jobie-text-dark) !important;
+}
+
+.jobie-container .table-light {
+    background-color: #F8FAFC !important;
+    color: var(--jobie-text-dark) !important;
+}
+
+.jobie-container .table-light th {
+    background-color: #F8FAFC !important;
+    color: #475569 !important;
+}
+
+.jobie-container .form-control,
+.jobie-container .form-select {
+    background-color: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
+    color: var(--jobie-text-dark) !important;
+}
+
+/* Dashboard Container */
+.jobie-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--jobie-bg);
+}
+
+/* Sidebar Styling */
+.jobie-sidebar {
+    width: 270px;
+    background: var(--jobie-purple);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 0 1.5rem 0;
+    transition: transform 0.3s ease;
+}
+
+.jobie-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 1.8rem;
+    margin-bottom: 2.5rem;
+    text-decoration: none;
+}
+
+.jobie-logo-icon {
+    width: 44px;
+    height: 44px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.jobie-logo-icon svg, .jobie-logo-icon i {
+    color: var(--jobie-purple);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.jobie-brand-text {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.jobie-brand-badge {
+    font-size: 0.65rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.jobie-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.jobie-nav-item {
+    position: relative;
+    width: 100%;
+}
+
+.jobie-nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.jobie-nav-link:hover {
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+.jobie-nav-link i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+/* Active Menu Cutout Curved Effect */
+.jobie-nav-link.active {
+    background: var(--jobie-bg);
+    color: var(--jobie-purple) !important;
+    font-weight: 700;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    margin-left: 20px;
+    box-shadow: -6px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.jobie-nav-link.active i {
+    color: var(--jobie-purple) !important;
+}
+
+.jobie-nav-link.active::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border-bottom-right-radius: 24px;
+    box-shadow: 12px 12px 0 12px var(--jobie-bg);
+    pointer-events: none;
+}
+
+.jobie-nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border-top-right-radius: 24px;
+    box-shadow: 12px -12px 0 12px var(--jobie-bg);
+    pointer-events: none;
+}
+
+.jobie-sidebar-footer {
+    margin-top: auto;
+    padding: 1.5rem 1.8rem 0.5rem;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+.jobie-sidebar-footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+/* Main Content Area */
+.jobie-main {
+    flex: 1;
+    margin-left: 270px;
+    padding: 1.8rem 2.2rem;
+    min-height: 100vh;
+    background-color: var(--jobie-bg);
+    position: relative;
+}
+
+/* Top Navbar */
+.jobie-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+}
+
+.jobie-header-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.jobie-menu-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--jobie-text-dark);
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.jobie-page-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--jobie-text-dark);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.jobie-search-box {
+    position: relative;
+    width: 360px;
+}
+
+.jobie-search-input {
+    width: 100%;
+    background: #E8EBF2;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 48px 12px 22px;
+    font-size: 0.88rem;
+    color: var(--jobie-text-dark);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.jobie-search-input:focus {
+    background: #E0E4ED;
+    box-shadow: 0 0 0 3px rgba(59, 19, 151, 0.15);
+}
+
+.jobie-search-input::placeholder {
+    color: #8E95A5;
+}
+
+.jobie-search-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #8E95A5;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.jobie-header-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.jobie-icon-badge-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #E8EBF2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555A68;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.jobie-icon-badge-btn:hover {
+    background: #DDE2EB;
+    color: var(--jobie-purple);
+}
+
+.jobie-badge-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--jobie-purple);
+    color: #FFFFFF;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #F4F6FB;
+}
+
+.jobie-profile-widget {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 30px;
+    transition: background 0.2s;
+}
+
+.jobie-profile-widget:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.jobie-header-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jobie-profile-info {
+    text-align: left;
+    line-height: 1.25;
+}
+
+.jobie-profile-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--jobie-text-dark);
+}
+
+.jobie-profile-role {
+    font-size: 0.75rem;
+    color: var(--jobie-text-muted);
+}
+
+/* Stat Cards (Row of 4) */
+.jobie-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.jobie-stat-card {
+    border-radius: var(--jobie-radius-md);
+    padding: 1.5rem 1.6rem;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.jobie-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.jobie-stat-card.stat-purple {
+    background: linear-gradient(135deg, #4417E4 0%, #300CB8 100%);
+}
+
+.jobie-stat-card.stat-blue {
+    background: linear-gradient(135deg, #2EA4F7 0%, #057BDE 100%);
+}
+
+.jobie-stat-card.stat-mint {
+    background: linear-gradient(135deg, #00CA99 0%, #009E77 100%);
+}
+
+.jobie-stat-card.stat-lime {
+    background: linear-gradient(135deg, #87D71C 0%, #68B40A 100%);
+}
+
+.jobie-stat-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.jobie-stat-content {
+    text-align: right;
+}
+
+.jobie-stat-title {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 6px;
+}
+
+.jobie-stat-value {
+    font-size: 2.1rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+}
+
+/* 2-Column Main Layout */
+.jobie-dashboard-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1.8rem;
+    align-items: start;
+}
+
+/* Generic White Jobie Card */
+.jobie-card {
+    background: var(--jobie-card-bg);
+    border-radius: var(--jobie-radius-md);
+    box-shadow: var(--jobie-shadow);
+    padding: 1.6rem;
+    border: none;
+    margin-bottom: 1.8rem;
+}
+
+/* User Profile Card */
+.jobie-user-card {
+    text-align: center;
+    padding: 2.2rem 1.6rem;
+}
+
+.jobie-avatar-ring-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.2rem;
+}
+
+.jobie-avatar-ring-wrapper svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+}
+
+.jobie-avatar-center-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: 3px solid #FFFFFF;
+}
+
+.jobie-user-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--jobie-text-dark);
+    margin-bottom: 4px;
+}
+
+.jobie-user-subtitle {
+    font-size: 0.85rem;
+    color: var(--jobie-text-muted);
+    margin-bottom: 1.8rem;
+}
+
+/* Donut Progress Gauges */
+.jobie-donut-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--jobie-border);
+}
+
+.jobie-donut-item {
+    text-align: center;
+}
+
+.jobie-donut-gauge {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 6px;
+}
+
+.jobie-donut-gauge svg {
+    width: 58px;
+    height: 58px;
+    transform: rotate(-90deg);
+}
+
+.jobie-donut-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--jobie-text-dark);
+}
+
+.jobie-donut-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--jobie-text-muted);
+}
+
+/* Recent Activities */
+.jobie-activities-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.jobie-card-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--jobie-text-dark);
+    margin: 0;
+}
+
+.jobie-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+
+.jobie-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.jobie-activity-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 10px;
+    background: #EFEBFC;
+    color: var(--jobie-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.jobie-activity-content {
+    line-height: 1.35;
+}
+
+.jobie-activity-text {
+    font-size: 0.82rem;
+    color: #3F4451;
+    margin-bottom: 2px;
+}
+
+.jobie-activity-text strong {
+    color: var(--jobie-text-dark);
+}
+
+.jobie-activity-time {
+    font-size: 0.72rem;
+    color: var(--jobie-text-muted);
+}
+
+.jobie-activity-expand {
+    display: flex;
+    justify-content: center;
+}
+
+.jobie-arrow-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #E2E6EE;
+    color: #8E95A5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.jobie-arrow-btn:hover {
+    background: var(--jobie-purple);
+    color: #FFFFFF;
+    border-color: var(--jobie-purple);
+}
+
+/* Vacancy Stats Chart Card */
+.jobie-stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.jobie-stats-legend-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.jobie-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--jobie-text-muted);
+}
+
+.jobie-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.jobie-toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--jobie-text-muted);
+}
+
+.jobie-toggle-pill {
+    width: 34px;
+    height: 18px;
+    background: #CBD5E1;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.jobie-toggle-pill::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.jobie-filter-pill-btn {
+    background: #FFFFFF;
+    border: 1px solid #DFE3EB;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #4A5161;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.jobie-filter-pill-btn:hover {
+    background: #F9FAFB;
+}
+
+.jobie-chart-container {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+/* Floating custom highlight tooltip */
+.jobie-chart-callout {
+    position: absolute;
+    top: 22%;
+    right: 18%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 8px 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #EEF0F5;
+    font-size: 0.75rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.jobie-chart-callout-date {
+    font-weight: 700;
+    color: #4A5161;
+    margin-bottom: 4px;
+}
+
+.jobie-chart-callout-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+/* Recommended Jobs Grid */
+.jobie-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.jobie-jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.jobie-job-card {
+    background: #FFFFFF;
+    border-radius: var(--jobie-radius-md);
+    padding: 1.4rem;
+    box-shadow: var(--jobie-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #F0F2F7;
+}
+
+.jobie-job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.jobie-job-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.jobie-job-company {
+    font-size: 0.78rem;
+    color: var(--jobie-text-muted);
+    font-weight: 600;
+    margin: 0;
+}
+
+.jobie-company-logo-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #FFFFFF;
+}
+
+.jobie-company-logo-badge.logo-blue {
+    background: #2563EB;
+}
+
+.jobie-company-logo-badge.logo-orange {
+    background: #F97316;
+}
+
+.jobie-job-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--jobie-text-dark);
+    margin-bottom: 6px;
+}
+
+.jobie-job-salary {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--jobie-text-dark);
+    margin-bottom: 10px;
+}
+
+.jobie-job-desc {
+    font-size: 0.75rem;
+    color: #717786;
+    line-height: 1.45;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.jobie-job-card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jobie-tag-pill {
+    background: #F1EEFD;
+    color: #5B21B6;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.jobie-job-location {
+    font-size: 0.74rem;
+    color: #8E95A5;
+    font-weight: 500;
+}
+
+/* Featured Companies Row */
+.jobie-companies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.jobie-company-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 1.1rem 1rem;
+    box-shadow: var(--jobie-shadow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #F0F2F7;
+    transition: all 0.2s;
+}
+
+.jobie-company-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.jobie-company-mono {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+
+.jobie-company-meta {
+    line-height: 1.25;
+}
+
+.jobie-company-name {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--jobie-text-dark);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jobie-company-vacancies {
+    font-size: 0.72rem;
+    color: #8E95A5;
+}
+
+.jobie-view-more-btn {
+    background: transparent;
+    border: 1px solid #DFE3EB;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #4A5161;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.jobie-view-more-btn:hover {
+    background: var(--jobie-purple);
+    color: #FFFFFF;
+    border-color: var(--jobie-purple);
+}
+
+.jobie-dots-indicator {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.jobie-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #CBD5E1;
+}
+
+.jobie-dot.active {
+    background: var(--jobie-purple);
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1200px) {
+    .jobie-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .jobie-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .jobie-jobs-grid {
+        grid-template-columns: 1fr;
+    }
+    .jobie-companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .jobie-sidebar {
+        transform: translateX(-100%);
+    }
+    .jobie-sidebar.show {
+        transform: translateX(0);
+    }
+    .jobie-main {
+        margin-left: 0;
+        padding: 1.2rem;
+    }
+    .jobie-search-box {
+        display: none;
+    }
+    .jobie-stat-grid {
+        grid-template-columns: 1fr;
+    }
+    .jobie-companies-grid {
+        grid-template-columns: 1fr;
+    }
+}
