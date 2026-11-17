@@ -1,0 +1,23 @@
+{
+    "name": "syamsul/nnaco-sa",
+    "description": "E-Commerce UMKM Aksesoris nnaco.sa dengan Fitur AI Assistant & WhatsApp OTP Gateway",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload": {
+        "classmap": [
+            "core/",
+            "app/controllers/",
+            "app/models/",
+            "app/services/"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit --colors=always --testdox"
+    }
+}

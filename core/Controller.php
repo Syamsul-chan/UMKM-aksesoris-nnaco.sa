@@ -14,8 +14,8 @@ class Controller {
     }
 
     public static function generateCsrfToken() {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
+        if (session_status() == PHP_SESSION_NONE && !headers_sent()) {
+            @session_start();
         }
         if (empty($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -24,10 +24,10 @@ class Controller {
     }
 
     public static function verifyCsrfToken($token) {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
+        if (session_status() == PHP_SESSION_NONE && !headers_sent()) {
+            @session_start();
         }
-        if (isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token)) {
+        if (!empty($token) && is_string($token) && isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token)) {
             return true;
         }
         return false;

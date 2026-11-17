@@ -1,0 +1,50 @@
+name: CI Pipeline (Rekayasa Perangkat Lunak)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  unit-test:
+    name: PHP Syntax Check & Automated Unit Testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 2. Setup PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, openssl, pdo, curl
+          tools: composer, phpunit
+          coverage: none
+
+      - name: 3. Validasi composer.json
+        run: composer validate --strict
+
+      - name: 4. Cache Composer Vendor
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: 5. Install Dependencies (PHPUnit)
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: 6. Pemeriksaan Sintaks PHP (PHP Syntax Lint)
+        run: |
+          find . -type f -name "*.php" ! -path "./vendor/*" ! -path "./scratch/*" -exec php -l {} +
+
+      - name: 7. Jalankan Automated Unit Tests
+        run: vendor/bin/phpunit --configuration phpunit.xml --testdox --colors=always
